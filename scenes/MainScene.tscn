@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://c8vw5ptpmxxq"]
+[gd_scene load_steps=21 format=4 uid="uid://c8vw5ptpmxxq"]
 
 [ext_resource type="Texture2D" uid="uid://c3h4g7uioqujs" path="res://assets/house.tilemap1.png" id="1_c6dvc"]
 [ext_resource type="Texture2D" uid="uid://0op56q3sdyk0" path="res://assets/kitchentilemap1.png" id="2_611at"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://cx1ekcmjklhy5" path="res://scripts/Player.cs" id="5_k24pf"]
 [ext_resource type="Texture2D" uid="uid://d2dkpimjch0ad" path="res://assets/bed2.png" id="6_x537r"]
 [ext_resource type="Texture2D" uid="uid://du0xn1i7vs2qa" path="res://assets/dresser.png" id="7_cfq0f"]
+[ext_resource type="Texture2D" uid="uid://bkjcimmw37khf" path="res://icon.svg" id="9_x537r"]
+[ext_resource type="PackedScene" uid="uid://gbfpr0j84f27" path="res://scenes/text_box.tscn" id="10_cfq0f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygjfp"]
 texture = ExtResource("1_c6dvc")
@@ -80,6 +82,9 @@ sources/1 = SubResource("TileSetAtlasSource_pjux3")
 sources/3 = SubResource("TileSetAtlasSource_o3jky")
 sources/4 = SubResource("TileSetAtlasSource_kp0ql")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cfq0f"]
+size = Vector2(12, 12)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Background Tiles" type="TileMapLayer" parent="."]
@@ -92,5 +97,30 @@ texture_filter = 1
 tile_map_data = PackedByteArray("AAAHAAAAAAACAAAAAAAIAAAAAAACAAAAAAAJAAAAAAABAAAAAAAGAAAAAAAAAAAAAAAHAAUAAgABAAAAAAABAAgAAgACAAAAAAABAAYAAgAAAAAAAAABAAEAAQAAAAAAAAABAAIAAwAAAAAAAAACAAEABAAAAAAAAAA=")
 tile_set = SubResource("TileSet_cfq0f")
 
-[node name="Player" type="Node2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(64, 64)
 script = ExtResource("5_k24pf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_cfq0f")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.0859375, 0.0859375)
+texture = ExtResource("9_x537r")
+
+[node name="Camera2D" type="Camera2D" parent="Player/Sprite2D"]
+position = Vector2(0, -6.10352e-05)
+scale = Vector2(2.14754, 2.14754)
+zoom = Vector2(8, 8)
+
+[node name="UI" type="Control" parent="Player/Sprite2D/Camera2D"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -254.667
+offset_top = -216.738
+offset_right = -214.667
+offset_bottom = -176.738
+
+[node name="TextBox" parent="Player/Sprite2D/Camera2D/UI" instance=ExtResource("10_cfq0f")]
+visible = false
+layout_mode = 1
