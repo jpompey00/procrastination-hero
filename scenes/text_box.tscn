@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://gbfpr0j84f27"]
+
+[ext_resource type="Script" uid="uid://4a1ly55r6jfi" path="res://scripts/TextBox.cs" id="1_3ojeh"]
+[ext_resource type="Texture2D" uid="uid://dosn12qthdhcu" path="res://assets/textbox-2.png" id="1_wscpg"]
+[ext_resource type="Texture2D" uid="uid://cqxwnbqlqg61r" path="res://assets/player/default talk/0.png" id="2_dyarx"]
+[ext_resource type="FontFile" uid="uid://cet870a2hmi0p" path="res://fonts/windows-bold[1].ttf" id="3_qdwih"]
+
+[node name="TextBox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3ojeh")
+
+[node name="TextureTextBox" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_wscpg")
+
+[node name="Character" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 36.0
+offset_top = 21.0
+offset_right = 100.0
+offset_bottom = 85.0
+texture = ExtResource("2_dyarx")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 111.0
+offset_top = 25.0
+offset_right = 478.0
+offset_bottom = 83.0
+theme_override_fonts/normal_font = ExtResource("3_qdwih")
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada risus at nisi "
+
+[node name="Timer" type="Timer" parent="."]
