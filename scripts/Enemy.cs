@@ -34,8 +34,22 @@ public partial class Enemy : Node
 
 	public void setDamageOverTime(int turn, int damage)
 	{
-		
+
 	}
 
-	
+	public void subtractStack()
+	{
+		foreach (Stacks stack in stacks)
+		{
+			stack.subtractCount();
+			GD.Print(stack.name + " | Stacks Left: " + stack.stackCount);
+			if (stack.stackCount <= 0)
+			{
+
+				stack.effect = null;
+			}
+		}
+	}
+
+
 }

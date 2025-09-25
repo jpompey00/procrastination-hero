@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Metadata.Ecma335;
 
@@ -25,7 +26,7 @@ public partial class Player : CharacterBody2D
 	public Player()
 	{
 		attack.setValueAtStart(10);
-		hp.setValueAtStart(10);
+		hp.setValueAtStart(150);
 		stamina.setValueAtStart(10);
 		defense.setValueAtStart(10);
 
@@ -37,13 +38,50 @@ public partial class Player : CharacterBody2D
 		Skill dotSkill = new Skill(
 			(player, enemy) =>
 			{
-				//add dot to enemy
+				bool exists = false;
+				foreach (Stacks stack in enemy.stacks)
+				{
+					if (stack.name.Trim() == "Poison")
+					{
+						exists = true;
+					}
+				}
+				if (!exists)
+				{
+					enemy.stacks.Add(
+						new Stacks(Constants.Type.ATTACK, 4,
+							(number) => { return 10; },
+						"Poison"));
+				}
+				else
+				{
+					GD.Print("Already Poisoned Numbnuts");
+				}
+
 			},
 			(player) => (int)Math.Floor((double)player.attack.currentValue - (player.attack.currentValue * .025f))
 		);
+
 		skills.Add(attackSkill);
+		skills.Add(dotSkill);
 		GD.Print(skills[0]);
 	}
+
+	public void subtractStack()
+	{
+		foreach (Stacks stack in stacks)
+		{
+			stack.subtractCount();
+			GD.Print(stack.name + " | Stacks Left: " + stack.stackCount);
+			if (stack.stackCount <= 0)
+			{
+
+				stack.effect = null;
+			}
+		}
+	}
+
+
 
 	public override void _Ready()
 	{
