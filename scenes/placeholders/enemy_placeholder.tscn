@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://hjdlpj578jhd"]
+[gd_scene load_steps=3 format=3 uid="uid://hjdlpj578jhd"]
 
 [ext_resource type="Texture2D" uid="uid://bkvtjakcyar17" path="res://assets/placeholder/vander.png" id="1_q7qld"]
+[ext_resource type="PackedScene" uid="uid://bl40xmcstq06k" path="res://scenes/placeholders/stat_container.tscn" id="2_gw8y0"]
 
 [node name="Enemy_Placeholder" type="Node2D"]
 
@@ -35,31 +36,13 @@ offset_top = 288.0
 offset_right = 283.0
 offset_bottom = 631.0
 
-[node name="Attack Container" type="HBoxContainer" parent="UI Elements Placeholder/Status Container"]
+[node name="Attack Container" parent="UI Elements Placeholder/Status Container" instance=ExtResource("2_gw8y0")]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="Status Name" type="RichTextLabel" parent="UI Elements Placeholder/Status Container/Attack Container"]
+[node name="Defense Container" parent="UI Elements Placeholder/Status Container" instance=ExtResource("2_gw8y0")]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Attack"
 
-[node name="Number" type="RichTextLabel" parent="UI Elements Placeholder/Status Container/Attack Container"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Stat Number Here"
+[node name="Status Name" parent="UI Elements Placeholder/Status Container/Defense Container" index="0"]
+text = "Defense"
 
-[node name="Defense Container" type="HBoxContainer" parent="UI Elements Placeholder/Status Container"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Status Name" type="RichTextLabel" parent="UI Elements Placeholder/Status Container/Defense Container"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Defense
-"
-
-[node name="Number" type="RichTextLabel" parent="UI Elements Placeholder/Status Container/Defense Container"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Stat Number Here"
+[editable path="UI Elements Placeholder/Status Container/Defense Container"]
