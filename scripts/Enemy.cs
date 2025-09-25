@@ -17,7 +17,7 @@ public partial class Enemy : Node
 	public Enemy()
 	{
 		attack.setValueAtStart(11);
-		hp.setValueAtStart(11);
+		hp.setValueAtStart(100);
 		stamina.setValueAtStart(11);
 		defense.setValueAtStart(11);
 	}

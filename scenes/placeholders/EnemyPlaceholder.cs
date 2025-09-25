@@ -3,7 +3,7 @@ using System;
 
 public partial class EnemyPlaceholder : Node2D
 {
-Sprite2D sprite;
+    Sprite2D sprite;
     ProgressBar hpBar;
     ProgressBar staminaBar;
     StatContainer attackContainer;
@@ -46,5 +46,10 @@ Sprite2D sprite;
     public void setupDefenseContainer(Stat defense)
     {
         defenseContainer.number.Text = defense.currentValue.ToString();
+    }
+    
+        public override void _Process(double delta)
+    {
+        hpBar.Value = enemy.hp.currentValue;
     }
 }

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 public partial class Player : CharacterBody2D
 {
@@ -12,6 +13,7 @@ public partial class Player : CharacterBody2D
 	public List<StatusEffect> buffs = new List<StatusEffect>();
 	public List<StatusEffect> debuffs = new List<StatusEffect>();
 	public List<Stacks> stacks = new List<Stacks>();
+	public List<Skill> skills = new List<Skill>();
 	public Combo combo;
 	public Constants.State state;
 
@@ -26,6 +28,21 @@ public partial class Player : CharacterBody2D
 		hp.setValueAtStart(10);
 		stamina.setValueAtStart(10);
 		defense.setValueAtStart(10);
+
+		Skill attackSkill = new Skill(
+				(player, enemy) => { },
+				//effect | no return
+				(player) => player.attack.currentValue //damage calculation
+			);
+		Skill dotSkill = new Skill(
+			(player, enemy) =>
+			{
+				//add dot to enemy
+			},
+			(player) => (int)Math.Floor((double)player.attack.currentValue - (player.attack.currentValue * .025f))
+		);
+		skills.Add(attackSkill);
+		GD.Print(skills[0]);
 	}
 
 	public override void _Ready()
@@ -54,11 +71,11 @@ public partial class Player : CharacterBody2D
 			// animatedSprite2D.Scale = new Vector2(1, 1);
 			Position = new Vector2(Position.X + 8, Position.Y);
 		}
-				if (Input.IsActionJustPressed(Constants.CONTROLS_UP))
+		if (Input.IsActionJustPressed(Constants.CONTROLS_UP))
 		{
 			GD.Print("Left Pressed, allowed to move left");
 			// animatedSprite2D.Scale = new Vector2(-1, 1);
-			Position = new Vector2(Position.X , Position.Y- 8);
+			Position = new Vector2(Position.X, Position.Y - 8);
 
 
 		}
@@ -66,8 +83,8 @@ public partial class Player : CharacterBody2D
 		{
 			GD.Print("Right Pressed, allowed to move right");
 			// animatedSprite2D.Scale = new Vector2(1, 1);
-			Position = new Vector2(Position.X , Position.Y+ 8);
+			Position = new Vector2(Position.X, Position.Y + 8);
 		}
-		
+
 	}
 }
