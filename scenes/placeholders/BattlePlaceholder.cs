@@ -3,6 +3,7 @@ using System;
 
 public partial class BattlePlaceholder : Node2D
 {
+    //basically the game manager lmao
     Player player;
     Enemy enemy;
     PlayerPlaceholder playerPlaceholder;
@@ -29,14 +30,23 @@ public partial class BattlePlaceholder : Node2D
 
         attack.Pressed += () =>
         {
-            
+            //maybe use a map for readability.
+            GD.Print(enemy.hp.currentValue + "/" + enemy.hp.value);
+            int damage = player.skills[0].skill(player, 2, enemy);
+            GD.Print(damage + " damage done");
+
+            enemy.hp.currentValue -= damage;
         };
     }
 
 
+
+
+
+    //should likely just use this for updating visuals, not for any actual game thing.
     public override void _Process(double delta)
     {
-        
+
     }
 
 
