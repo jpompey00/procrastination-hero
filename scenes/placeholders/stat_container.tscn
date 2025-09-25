@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl40xmcstq06k"]
+
+[ext_resource type="Script" uid="uid://pbcpjyeukyq1" path="res://scenes/placeholders/StatContainer.cs" id="1_bnpyu"]
+
+[node name="StatusContainer" type="HBoxContainer"]
+size_flags_vertical = 3
+script = ExtResource("1_bnpyu")
+
+[node name="Status Name" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Attack"
+
+[node name="Number" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stat Number Here"
