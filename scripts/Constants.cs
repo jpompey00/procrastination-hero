@@ -12,5 +12,19 @@ public static class Constants
     public const String CONTROLS_CONFIRM = "Confirm";
     public const String CONTROLS_DENY = "Deny";
 
+    public enum State
+    {
+        COMBO,
+        STUN,
+        NEUTRAL
+    }
+
+    public enum Type
+    {
+        ATTACK,
+        HEAL,
+        BUFF,
+        DEBUFF
+    }
 }
 
