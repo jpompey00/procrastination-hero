@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 public partial class Player : CharacterBody2D
 {
@@ -33,6 +34,13 @@ public partial class Player : CharacterBody2D
 				//effect | no return
 				(player) => player.attack.currentValue //damage calculation
 			);
+		Skill dotSkill = new Skill(
+			(player, enemy) =>
+			{
+				//add dot to enemy
+			},
+			(player) => (int)Math.Floor((double)player.attack.currentValue - (player.attack.currentValue * .025f))
+		);
 		skills.Add(attackSkill);
 		GD.Print(skills[0]);
 	}
