@@ -26,5 +26,14 @@ public static class Constants
         BUFF,
         DEBUFF
     }
+
+    public enum TurnPhase
+    {
+        START,
+        TURN,
+        BATTLE,
+        RESOLVE,
+        CLEANUP
+    }
 }
 

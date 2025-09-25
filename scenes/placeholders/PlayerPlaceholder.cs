@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class PlayerPlaceholder : Node2D
 {
@@ -9,6 +10,8 @@ public partial class PlayerPlaceholder : Node2D
     StatContainer attackContainer;
     StatContainer defenseContainer;
     Player player;
+
+
 
     public override void _Ready()
     {
@@ -47,5 +50,13 @@ public partial class PlayerPlaceholder : Node2D
     {
         defenseContainer.number.Text = defense.currentValue.ToString();
     }
+
+    public override void _Process(double delta)
+    {
+        hpBar.Value = player.hp.currentValue;
+    }
+
+
+
 
 }
