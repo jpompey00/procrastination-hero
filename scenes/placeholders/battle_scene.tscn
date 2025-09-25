@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ro4w7il1ptu6"]
+[gd_scene load_steps=5 format=3 uid="uid://ro4w7il1ptu6"]
 
 [ext_resource type="Script" uid="uid://4732vgykx80s" path="res://scenes/placeholders/BattlePlaceholder.cs" id="1_blou0"]
 [ext_resource type="PackedScene" uid="uid://3dgxfe4p43xw" path="res://scenes/placeholders/player_placeholder.tscn" id="2_uehfh"]
 [ext_resource type="PackedScene" uid="uid://hjdlpj578jhd" path="res://scenes/placeholders/enemy_placeholder.tscn" id="3_5flba"]
+[ext_resource type="Script" uid="uid://d2vy21a0ccvxc" path="res://scenes/placeholders/EnemyPlaceholder.cs" id="4_uehfh"]
 
 [node name="Battle Scene" type="Node2D"]
 script = ExtResource("1_blou0")
@@ -12,6 +13,7 @@ position = Vector2(261, 178)
 
 [node name="Enemy_Placeholder" parent="." instance=ExtResource("3_5flba")]
 position = Vector2(920, 175)
+script = ExtResource("4_uehfh")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
