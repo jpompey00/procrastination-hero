@@ -42,15 +42,16 @@ public partial class Player : CharacterBody2D
 			(player) => (int)Math.Floor((double)player.attack.currentValue - (player.attack.currentValue * .025f))
 		);
 		skills.Add(attackSkill);
+		skills.Add(dotSkill);
 		GD.Print(skills[0]);
 	}
 
 	public override void _Ready()
 	{
 		state = Constants.State.NEUTRAL;
-		// textBox = GetChild(0).GetChild(0).GetChild(0).GetChild<TextBox>(0);
-		// textBox.displayText("This is some test text lmao", 10f);
-		// GD.Print(attack.currentValue);
+		textBox = GetChild(1).GetChild(0).GetChild(0).GetChild<TextBox>(0);
+		textBox.displayText("This is some test text lmao", 10f);
+		GD.Print(attack.currentValue);
 	}
 
 	public override void _Process(double delta)
