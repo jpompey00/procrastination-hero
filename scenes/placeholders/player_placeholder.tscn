@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://3dgxfe4p43xw"]
+[gd_scene load_steps=4 format=3 uid="uid://3dgxfe4p43xw"]
 
 [ext_resource type="Texture2D" uid="uid://d3p37f5m81sh0" path="res://assets/placeholder/business_time.png" id="1_4i0f1"]
 [ext_resource type="Script" uid="uid://c2fvaypau1lv7" path="res://scenes/placeholders/PlayerPlaceholder.cs" id="1_037vj"]
 [ext_resource type="PackedScene" uid="uid://bl40xmcstq06k" path="res://scenes/placeholders/stat_container.tscn" id="3_5vwq7"]
-[ext_resource type="Texture2D" uid="uid://copgkxedh0yvs" path="res://assets/DEFEND_big.png" id="4_5vwq7"]
 
 [node name="PlayerPlaceholder" type="Node2D"]
 script = ExtResource("1_037vj")
@@ -54,9 +53,5 @@ offset_left = 6.0
 offset_top = 80.0
 offset_right = 46.0
 offset_bottom = 120.0
-
-[node name="TextureRect" type="TextureRect" parent="UI Elements Placeholder/Buff Debuff Container"]
-layout_mode = 2
-texture = ExtResource("4_5vwq7")
 
 [editable path="UI Elements Placeholder/Status Container/Defense Container"]

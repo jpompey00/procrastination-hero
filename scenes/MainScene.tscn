@@ -122,4 +122,5 @@ offset_right = -214.667
 offset_bottom = -176.738
 
 [node name="TextBox" parent="Player/Sprite2D/Camera2D/UI" instance=ExtResource("10_cfq0f")]
+visible = false
 layout_mode = 1

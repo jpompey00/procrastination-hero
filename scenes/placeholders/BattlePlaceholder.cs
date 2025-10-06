@@ -74,6 +74,7 @@ public partial class BattlePlaceholder : Node2D
                 }, "Defend");
                 player.stacks.Add(defense);
                 //create a stack of defense
+                playerPlaceholder.addToBuffsAndDebuffs(playerPlaceholder.defenseIcon);
                 //defense goes away after 1 hit
                 turnPhase = Constants.TurnPhase.RESOLVE;
             }

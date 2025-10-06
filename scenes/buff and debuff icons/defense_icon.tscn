@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfo8om131cwqh"]
+
+[ext_resource type="Texture2D" uid="uid://copgkxedh0yvs" path="res://assets/DEFEND_big.png" id="1_2b083"]
+
+[node name="Defense Icon" type="TextureRect"]
+texture = ExtResource("1_2b083")
